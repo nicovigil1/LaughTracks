@@ -11,5 +11,15 @@ RSpec.describe Comedian do
         expect(comic).to_not be_valid
       end
     end
+
+    context 'analytics' do
+            it 'can find the average age of comedians' do
+                c1 = Comedian.create(name: "Robin Williams", age:10)
+                c2 = Comedian.create(name: "Michael Jackson", age:20)
+
+                expect(Comedian.average_age).to eq(15)
+            end
+        end 
+
   end
 end

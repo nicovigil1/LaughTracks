@@ -4,7 +4,6 @@
     <% @comedians.each do |comedian|%>
         <div id= '<%= "#{comedian.name.delete(' ')}" %>' class="comedian">
         <img src="<%= comedian.headshot %>"/>
- 
             <ul>
                 <li><%=comedian.name%></li>
                 <li><%=comedian.age%></li>
@@ -15,6 +14,7 @@
                     <ul>
                         <li><%= special.name %></li>
                         <li><%= special.runtime %></li>
+                        <img src="<%=special.image%>">
                     </ul>
                 <% end %>
             </div>

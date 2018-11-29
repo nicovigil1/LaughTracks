@@ -42,5 +42,30 @@ RSpec.describe 'User can visit and see comedians' do
                     expect(page).to have_css("img[src='#{williams.headshot}']")
                 end
         end 
+
     end
+
+    context 'it can display analytics' do
+
+        it 'can display average age of comedians' do
+            c1 = Comedian.create(name: "Robin Williams", age:10)
+            c2 = Comedian.create(name: "Michael Jackson", age:20)
+
+            visit '/comedians'
+
+            expect(page).to have_content(15)
+        end 
+
+        xit 'can display average age of comedians in specific div' do 
+            c1 = Comedian.create(name: "Robin Williams", age:10)
+            c2 = Comedian.create(name: "Michael Jackson", age:20)
+
+            visit '/comedians'
+            within('div#stats') do
+                expect(page).to have_content(15)
+            end
+        end 
+
+    end
+
 end

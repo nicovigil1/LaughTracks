@@ -45,5 +45,19 @@ RSpec.describe "It can display Specials" do
             end
         end
 
+        context 'can show specials thumbnails' do
+            it 'can show image in the same div as the special' do
+                williams = Comedian.create(name:"Robin Williams", age:63, headshot:'williams.jpg')
+                sd = williams.specials.create(name: "Weapons of Self Destruction", runtime: 90)
+                evening = williams.specials.create(name: "An Evening with Robin Williams", runtime:60, image:"an-evening-with-rob.jpg")
+
+                visit '/comedians'
+                
+                within('div#RobinWilliams') do
+                    expect(page).to have_css("img[src='#{evening.image}']")
+                end
+            end 
+        end
+
 end
 
