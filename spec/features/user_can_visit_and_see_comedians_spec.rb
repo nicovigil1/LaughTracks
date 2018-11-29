@@ -25,9 +25,12 @@ RSpec.describe 'User can visit and see comedians page' do
 
     context 'it can display a photo of the comedian' do
         it 'can display image on the page' do
+            williams = Comedian.create(name:"Robin Williams", age:63, headshot:'williams.jpg')
+            williams.specials.create(name: "Weapons of Self Destruction", runtime: 90)
             visit '/comedians'
 
-            expect(page).to have_xpath("//img[contains(@src, 'Cesar.jpg')")
+
+            expect(page).to have_css("img[src='#{williams.headshot}']")
         end
     end
 end
