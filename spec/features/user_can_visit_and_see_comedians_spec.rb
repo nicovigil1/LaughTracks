@@ -1,4 +1,4 @@
-RSpec.describe 'User can visit and see comedians page' do
+RSpec.describe 'User can visit and see comedians' do
     context 'visit comedians' do
        it 'can visit and view comedians' do  
             Comedian.create(name: "Cesar Chavez", age: "66", city: "San Jose")
@@ -32,5 +32,15 @@ RSpec.describe 'User can visit and see comedians page' do
 
             expect(page).to have_css("img[src='#{williams.headshot}']")
         end
+
+        it 'can display each comedians image in the same div' do
+            williams = Comedian.create(name:"Robin Williams", age:63, headshot:'williams.jpg')
+
+            visit '/comedians'
+
+                within('div#RobinWilliams.comedians') do
+                    expect(page).to have_css("img[src='#{williams.headshot}']")
+                end
+        end 
     end
 end
