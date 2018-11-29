@@ -22,4 +22,12 @@ RSpec.describe 'User can visit and see comedians page' do
             end
         end 
     end
+
+    context 'it can display a photo of the comedian' do
+        it 'can display image on the page' do
+            visit '/comedians'
+
+            expect(page).to have_xpath("//img[contains(@src, 'Cesar.jpg')")
+        end
+    end
 end
