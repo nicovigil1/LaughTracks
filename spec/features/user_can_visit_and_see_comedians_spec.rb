@@ -56,7 +56,7 @@ RSpec.describe 'User can visit and see comedians' do
             expect(page).to have_content(15)
         end 
 
-        xit 'can display average age of comedians in specific div' do 
+        it 'can display average age of comedians in specific div' do 
             c1 = Comedian.create(name: "Robin Williams", age:10)
             c2 = Comedian.create(name: "Michael Jackson", age:20)
 

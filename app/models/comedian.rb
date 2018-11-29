@@ -9,5 +9,7 @@ class Comedian < ActiveRecord::Base
             comedian.age
         end.sum
         (all_the_years / Comedian.all.length)
-    end     
+    end
+    
+
 end
