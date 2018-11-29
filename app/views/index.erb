@@ -2,10 +2,12 @@
 
 <div>
     <% @comedians.each do |comedian|%>
-        <ul>
-            <li><%=comedian.name%></li>
-            <li><%=comedian.age%></li>
-            <li><%=comedian.city%></li>
-        </ul>
+        <div class="comedian">
+            <ul>
+                <li><%=comedian.name%></li>
+                <li><%=comedian.age%></li>
+                <li><%=comedian.city%></li>
+            </ul>
+        </div>
     <%end%>
 </div>
