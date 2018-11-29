@@ -37,8 +37,8 @@ RSpec.describe 'User can visit and see comedians' do
             williams = Comedian.create(name:"Robin Williams", age:63, headshot:'williams.jpg')
 
             visit '/comedians'
-
-                within('div#RobinWilliams.comedians') do
+     
+                within('div#RobinWilliams.comedian') do
                     expect(page).to have_css("img[src='#{williams.headshot}']")
                 end
         end 
