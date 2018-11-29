@@ -1,4 +1,4 @@
-RSpec.describe 'visit and see comedians page' do
+RSpec.describe 'User can visit and see comedians page' do
     context 'visit comedians' do
        it 'can visit and view comedians' do  
             Comedian.create(name: "Cesar Chavez", age: "66", city: "San Jose")
