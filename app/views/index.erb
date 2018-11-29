@@ -1,1 +1,11 @@
-<h1>hello world</h1>
+<h1>All the Activists</h1>
+
+<div>
+    <% @comedians.each do |comedian|%>
+        <ul>
+            <li><%=comedian.name%></li>
+            <li><%=comedian.age%></li>
+            <li><%=comedian.city%></li>
+        </ul>
+    <%end%>
+</div>
