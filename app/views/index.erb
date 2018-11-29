@@ -12,3 +12,11 @@
     <%end%>
 </div>
 
+<div>
+    <%@specials.each do |special|%>
+        <ul>
+            <li><%= special.name %></li>
+            <li><%= special.runtime %></li>
+        </ul>
+    <% end %>
+</div>
