@@ -16,7 +16,7 @@ RSpec.describe 'User can visit and see comedians page' do
             Comedian.create(name: "Will Petty", age: "45", city: "Nuremburg")
 
             visit '/comedians'
-            
+
             within('div#CesarChavez.comedian') do
                 expect(page).to have_content('Cesar Chavez')
             end

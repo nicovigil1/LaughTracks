@@ -8,16 +8,17 @@
                 <li><%=comedian.age%></li>
                 <li><%=comedian.city%></li>
             </ul>
+
+            <div>
+                <%comedian.specials.each do |special|%>
+                    <ul>
+                        <li><%= special.name %></li>
+                        <li><%= special.runtime %></li>
+                    </ul>
+                <% end %>
+            </div>
         </div>
     <%end%>
 </div>
 
 
-<div>
-    <%@specials.each do |special|%>
-        <ul>
-            <li><%= special.name %></li>
-            <li><%= special.runtime %></li>
-        </ul>
-    <% end %>
-</div>
