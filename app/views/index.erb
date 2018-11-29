@@ -2,7 +2,7 @@
 
 <div>
     <% @comedians.each do |comedian|%>
-        <div class="comedian">
+        <div id= '<%= "#{comedian.name.delete(' ')}" %>' class="comedian">
             <ul>
                 <li><%=comedian.name%></li>
                 <li><%=comedian.age%></li>
