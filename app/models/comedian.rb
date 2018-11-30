@@ -11,5 +11,15 @@ class Comedian < ActiveRecord::Base
         (all_the_years / Comedian.all.length)
     end
     
+    def self.average_runtime
+        runtimes = []
+        Comedian.all.each do |comedian|
+            comedian.specials.each do |special|
+                runtimes << special.runtime
+            end
+        end 
+        runtimes.sum / runtimes.length
+    end 
+    
 
 end
