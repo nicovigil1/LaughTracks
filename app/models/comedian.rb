@@ -20,6 +20,9 @@ class Comedian < ActiveRecord::Base
         end 
         runtimes.sum / runtimes.length
     end 
-    
+
+    def self.cities
+        Comedian.all.distinct.pluck(:city)
+    end 
 
 end

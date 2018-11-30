@@ -29,12 +29,12 @@ RSpec.describe Comedian do
               expect(Comedian.average_runtime).to eq(50)
             end
 
-            xit 'can generate a unique list of cities' do
+            it 'can generate a unique list of cities' do
               burnham = Comedian.create(name: "Bo Burnham", age:28, city:"Los Angeles, CA", headshot:'burnham.jpg')
-              ball = Comedian.create(name: "Lucille Ball", age:77, city:"Las Angeles, CA", headshot:'ball.jpg')
+              ball = Comedian.create(name: "Lucille Ball", age:77, city:"Los Angeles, CA", headshot:'ball.jpg')
               poehler = Comedian.create(name: "Amy Poehler", age:47, city:"New York City, NY", headshot:'poehler.jpg')
 
-              expect(Comedian.cities).to eq(["Los Angeles, CA", "New York City, NY"])
+              expect(Comedian.cities).to eq(["New York City, NY", "Los Angeles, CA"])
             end
         end 
 
