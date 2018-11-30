@@ -22,4 +22,17 @@
     <%end%>
 </div>
 
-<div id="stats"><%=Comedian.average_age%></div>
+<div id="stats">
+
+<div><%= "Average age: #{Comedian.average_age}" %></div>
+<div>
+    <p>Current Cities:</p>
+    <ul>
+    <%Comedian.cities.each do |city|%>
+        <li><%=city%></li>
+    <%end%>
+    </ul>
+</div>
+</div>
+
+

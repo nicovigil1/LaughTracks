@@ -1,4 +1,18 @@
 RSpec.describe 'User can visit and see comedians' do
+    describe 'Validations' do
+        describe 'Required Field(s)' do
+            it 'should be invalid if missing a name' do
+                comic = Comedian.create(age: 48)
+                expect(comic).to_not be_valid
+            end
+
+            it 'should be invalid if missing an age' do
+                comic = Comedian.create(name: 'Mitch Hedberg')
+                expect(comic).to_not be_valid
+            end
+        end
+    end
+
     context 'visit comedians' do
        it 'can visit and view comedians' do  
             Comedian.create(name: "Cesar Chavez", age: "66", city: "San Jose")
@@ -66,6 +80,34 @@ RSpec.describe 'User can visit and see comedians' do
             end
         end 
 
+        it 'can display a unique list of cities in a specific div' do
+            burnham = Comedian.create(name: "Bo Burnham", age:28, city:"Los Angeles, CA", headshot:'burnham.jpg')
+            ball = Comedian.create(name: "Lucille Ball", age:77, city:"Los Angeles, CA", headshot:'ball.jpg')
+            poehler = Comedian.create(name: "Amy Poehler", age:47, city:"New York City, NY", headshot:'poehler.jpg')
+            visit '/comedians'
+            within('#stats') do 
+                expect(page).to have_content("New York City, NY")
+                expect(page).to have_content("Los Angeles, CA")
+            end
+        end
+
+        context 'User can query the page' do
+
+            it 'can show comedians by age' do
+                burnham = Comedian.create(name: "Bo Burnham", age:28, city:"Los Angeles, CA", headshot:'burnham.jpg')
+                ball = Comedian.create(name: "Lucille Ball", age:28, city:"Los Angeles, CA", headshot:'ball.jpg')
+                poehler = Comedian.create(name: "Amy Poehler", age:47, city:"New York City, NY", headshot:'poehler.jpg')
+
+                visit '/comedians?age=34'
+                
+                expect(page).to have_content("Lucille Ball")
+                expect(page).to have_content("Bo Burnham")
+            end 
+
+        end
+
+
     end
 
 end
+
