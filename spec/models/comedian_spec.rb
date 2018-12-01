@@ -36,6 +36,7 @@ RSpec.describe Comedian do
 
               expect(Comedian.cities).to eq(["New York City, NY", "Los Angeles, CA"])
             end
+
         end 
 
   end

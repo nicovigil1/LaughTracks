@@ -98,14 +98,29 @@ RSpec.describe 'User can visit and see comedians' do
                 ball = Comedian.create(name: "Lucille Ball", age:28, city:"Los Angeles, CA", headshot:'ball.jpg')
                 poehler = Comedian.create(name: "Amy Poehler", age:47, city:"New York City, NY", headshot:'poehler.jpg')
 
-                visit '/comedians?age=34'
-                
+                visit '/comedians?age=28'
+
                 expect(page).to have_content("Lucille Ball")
                 expect(page).to have_content("Bo Burnham")
+
+                expect(page).to_not have_content("Amy Poehler")
+            end 
+            
+            it 'can display only sorted comedians specials' do 
+                burnham = Comedian.create(name: "Bo Burnham", age:28, city:"Los Angeles, CA", headshot:'burnham.jpg')
+                ball = Comedian.create(name: "Lucille Ball", age:28, city:"Los Angeles, CA", headshot:'ball.jpg')
+                poehler = Comedian.create(name: "Amy Poehler", age:47, city:"New York City, NY", headshot:'poehler.jpg')
+
+                burnham.specials.create(name: "Make Happy", runtime:60, image:"make-happy.jpg")
+                poehler.specials.create(name:"Parks and Recreation", runtime:30, image:"pnr.jpg")
+
+                visit '/comedians?age=28'
+
+                expect(page).to have_content('Make Happy')
+                expect(page).to_not have_content("Parks and Recreation")
             end 
 
         end
-
 
     end
 
