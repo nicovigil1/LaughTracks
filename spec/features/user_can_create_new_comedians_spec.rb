@@ -2,15 +2,14 @@ RSpec.describe 'User can create new comedians' do
     it 'can view a form on comedian/new' do
         visit '/comedians/new'
 
-        save_and_open_page
         expect(page).to have_css('.new-comedian')
     end 
 
-    xit 'can fill in the new comedians form' do 
+    it 'can fill in the new comedians form' do 
         visit '/comedians/new'
 
         fill_in 'comedian[name]', with: 'Nico Vigil'
-        fill_in 'comedian[age]', with: '21'
+        fill_in 'comedian[age]', with: 21
         fill_in 'comedian[city]', with: 'Denver, CO'
         click_button 'Submit'
         

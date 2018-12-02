@@ -11,8 +11,13 @@ class LaughTracksApp < Sinatra::Base
     end 
 
     get '/comedians/new' do 
-        erb :new 
+        erb :new
     end
+
+    post '/comedians' do
+        Comedian.create(params["comedian"])
+        redirect '/comedians'
+    end 
     
 
 end
