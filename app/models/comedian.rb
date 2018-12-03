@@ -25,4 +25,10 @@ class Comedian < ActiveRecord::Base
         Comedian.all.distinct.pluck(:city)
     end 
 
+    def self.strip(parameter)
+        comedian = parameter[:comedian]
+        comedian[:headshot] = comedian[:headshot][:filename]
+        comedian
+    end 
+
 end

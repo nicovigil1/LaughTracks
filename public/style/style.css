@@ -1,0 +1,49 @@
+img {
+    height: 200px;
+    width: 150px;
+}
+img.centered.image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header {
+    margin-left: 2%;
+}
+
+.meta {
+    margin-left: 2%;
+}
+
+div.ui.four.centered.cards {
+    padding-top: 15px;
+    padding-left:  50px;
+    padding-right: 50px;
+    background-color: #000000cf;
+}
+
+div.content.active {
+    background-color: #ffff20cf;
+}
+
+div.ui.menu {
+    background-color: #ffff20cf;
+}
+
+div.title {
+    background-color: #ffff20cf;
+}
+
+div.content {
+    background-color: #ffff20cf;
+}
+
+div#stats{
+    margin-top: 10px;
+    background-color: #ffff20cf;
+}
+
+html {
+  overflow-y: scroll;
+}

@@ -1,4 +1,5 @@
 class LaughTracksApp < Sinatra::Base
+    
     get '/comedians' do
         if params[:age]
             @comedians = Comedian.where(age: params[:age])
@@ -14,10 +15,32 @@ class LaughTracksApp < Sinatra::Base
         erb :new
     end
 
-    post '/comedians' do
-        Comedian.create(params["comedian"])
-        redirect '/comedians'
+    get '/comedians/specials' do 
+        erb :specials
     end 
-    
 
+    post '/comedians' do
+        
+        @image_name = params[:comedian][:headshot][:filename]
+        image = params[:comedian][:headshot][:tempfile]
+        
+        File.open("./public/#{@image_name}", 'wb') do |f|
+            f.write(image.read)
+        end 
+
+        parameter = Comedian.strip(params)
+        
+        Comedian.create(parameter)
+        redirect '/comedians'
+    end
+
+    post '/comedians/specials' do
+        comedian = Comedian.find_by(name: params["comedian_name"])
+        comedian.specials.create(params["special"]) 
+        redirect '/comedians'
+    end
+
+        
+
+    
 end

@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+                integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+                crossorigin="anonymous"></script>
+        <script src='https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js'></script>
+        <link rel="stylesheet" href="../style/style.css">
+    </head>
+
+    <body>
+        <div class="ui menu">
+            <a href='/comedians' class="ui header item">All the Comedians</a>
+            <a href="/comedians/new" class="ui right item">Add a Comedian!</a>
+        </div>
+
+
+        <form action="/comedians/specials" class="new-comedian ui form" method='POST'>
+        <h1 class="ui dividing header">Add A Special!</h1>
+            <div class="four fields">
+                <div class="field">
+                    <label for="">Comedian's full name</label>
+                    <input type="text" name="comedian_name" placeholder="Comedian's full name">
+                </div>
+                <div class="field">
+                    <label>Special's Name:</label>
+                    <input  type="text" name="special[name]" placeholder="Special's Name">
+                </div>
+                <div class="field">
+                    <label for="">Runtime:</label>
+                    <input  type="text" name="special[runtime]" placeholder='(Minutes)'>
+                </div>
+            </div>
+            <div class="two fields">
+                <div class="field">
+                    <label for="">IMDB link:</label>
+                    <input  type="text" name="special[imdb]" placeholder='IMDB link'>
+                </div>
+                <div class="field">
+                    <label>Upload Image:</label>
+                    <input type="file" name="special[image]">
+                </div>
+            </div>
+                <button class='ui button' type="submit" value="Submit">Submit</button>
+        </form>
+    </body>
+</html>
