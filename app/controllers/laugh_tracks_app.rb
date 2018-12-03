@@ -20,11 +20,10 @@ class LaughTracksApp < Sinatra::Base
     end 
 
     post '/comedians' do
-        
-        @image_name = params[:comedian][:headshot][:filename]
+        image_name = params[:comedian][:headshot][:filename]
         image = params[:comedian][:headshot][:tempfile]
         
-        File.open("./public/#{@image_name}", 'wb') do |f|
+        File.open("./public/#{image_name}", 'wb') do |f|
             f.write(image.read)
         end 
 
@@ -35,8 +34,18 @@ class LaughTracksApp < Sinatra::Base
     end
 
     post '/comedians/specials' do
+        image_name = params[:special][:image][:filename]
+        image = params[:special][:image][:tempfile]
+        
+        File.open("./public/#{image_name}", 'wb') do |f|
+            f.write(image.read)
+        end 
+        
+        parameter = Special.strip(params)
+
         comedian = Comedian.find_by(name: params["comedian_name"])
-        comedian.specials.create(params["special"]) 
+        comedian.specials.create(parameter) 
+
         redirect '/comedians'
     end
 
